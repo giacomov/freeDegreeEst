@@ -6,6 +6,10 @@ The original Matlab code can be downloaded from:
 
 http://willett.ece.wisc.edu/code/FreeDegree.zip 
 
+*** The original code is property of the respective authors. I do not own
+it and I didn't have any part on the research which produced that code. I simply
+wrote this wrapper because I found that code useful for my research.
+
 ## Installation
 
 You need Boost Python installed. If you have a custom installation of Boost
