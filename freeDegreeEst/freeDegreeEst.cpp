@@ -23,9 +23,6 @@ double realmax = 1e238 ;
 double realmin = 1e-307 ;
 double PI = 3.14159265359;
 
-//inline int max ( int a, int b ) { return a > b ? a : b; }
-//inline int min ( int a, int b ) { return a < b ? a : b; }
-
 using namespace std;
 
 /* End of code added by GV */
@@ -593,6 +590,9 @@ void computeDensity(double *x, int n, double *y, int estLength, double pen, int 
   }
   freeTree(T);
 }
+
+//This ifdef/endif exclude the code meant for matlab
+
 #ifdef MATLAB_CODE
 
 void mexFunction(int nlhs,mxArray *plhs[],int nrhs,const mxArray *prhs[])
@@ -662,7 +662,7 @@ void mexFunction(int nlhs,mxArray *plhs[],int nrhs,const mxArray *prhs[])
 
 #endif
 
-/* Wrapper by GV */
+/* Python wrapper by GV */
 
 typedef std::vector<double> doubleArray;
 
@@ -682,29 +682,7 @@ doubleArray getDensity( boost::python::object& iterable, int n, int estLength, d
   doubleArray y( estLength, 0.0 );
   
   double *yy = &y[0];
-  
-  int i;
-  
-  for(i=0;i < n;++i)
-  {
-      printf("%f", xx[i]);
-  }
-  printf("\n");
-  
-  printf("%i\n", n);
-  
-  for(i=0;i < estLength;++i)
-  {
-      printf("%f", yy[i]);
-  }
-  printf("\n");
-  
-  printf("%i\n", estLength);
-  printf("%f\n", pen);
-  printf("%i\n", maxPolyOrder); 
-  
-  
-  
+    
   computeDensity(xx, n, yy, estLength, pen, maxPolyOrder);
   
   return y;
